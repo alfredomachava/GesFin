@@ -18,7 +18,7 @@
 				
                 <div class="col-md-6 align-self-center">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{url('admin/dash')}}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/gesfinancas/dash')}}">Home</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                 </div>
@@ -58,13 +58,13 @@
 			  <h3>Acesso rápido</h3>
 			  <div class="flex-containerr">
               <div class="card-body">		   
-                <a href="{{url('admin/dashboard')}}"><span class="fa fa-plus-circle"></span>DESPESA</a>
+                <a href="{{url('/gesfinancas/dashboard')}}"><span class="fa fa-plus-circle"></span>DESPESA</a>
               </div>
 			   <div class="card-body">		   
-                <a href="{{url('admin/dashboard')}}"><span class="fa fa-plus-circle"></span>RECEITA</a>
+                <a href="{{url('/gesfinancas/dashboard')}}"><span class="fa fa-plus-circle"></span>RECEITA</a>
               </div>
 			   <div class="card-body">		   
-                <a href="{{url('admin/dashboard')}}"><span class="fa fa-exchange"></span>TRANSFERIR</a>
+                <a href="{{url('/gesfinancas/dashboard')}}"><span class="fa fa-exchange"></span>TRANSFERIR</a>
               </div>
 			  </div>
               </div>

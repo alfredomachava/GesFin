@@ -48,7 +48,7 @@
 	 
                 <div class="col-md-6 align-self-center">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{url('admin/dash')}}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/gesfinancas/dash')}}">Home</a></li>
                         <li class="breadcrumb-item active">Metas</li>
                     </ol>
                 </div>

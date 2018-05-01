@@ -20,7 +20,7 @@
 				</div>
                 <div class="col-md-6 align-self-center">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{url('admin/dashboard')}}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/gesfinancas/dashboard')}}">Home</a></li>
                         <li class="breadcrumb-item active">Contas e Carteiras</li>
                     </ol>
                 </div>
@@ -99,7 +99,7 @@
                         <button type="submit" class="btn btn-success add">
                             <span id="" class='glyphicon glyphicon-check'></span> Salvar
                         </button>
-                         <a class="btn btn-warning" href="{{ url('contas') }}">
+                         <a class="btn btn-warning" class="close" data-dismiss="modal">
                             <span class='glyphicon glyphicon-remove'></span> Fechar
                          </a>
                     </div>
@@ -163,7 +163,7 @@
                         <button type="submit" class="btn btn-primary edit" >
                             <span class='glyphicon glyphicon-check'></span> Editar
                         </button>
-                         <a class="btn btn-warning" href="{{ url('contas') }}">
+                         <a class="btn btn-warning" class="close" data-dismiss="modal">
                             <span class='glyphicon glyphicon-remove'></span> Fechar
                          </a>
                     </div>					
@@ -184,10 +184,8 @@
                 <div class="modal-body">
                     <h3 class="text-center">Tem certeza de que quer eliminar esta conta?</h3>
                     <br />
-                     <form  action="{{route('deleteConta', $conta->id)}}" method="POST">
-					      {{ method_field('DELETE') }}
-					      {{csrf_field()}}
-						
+                     <form  class="form-horizontal" role="form">
+					     
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="id">ID:</label>
                             <div class="col-sm-10">
@@ -208,16 +206,16 @@
                                 <p class="errorSaldo text-center alert alert-danger hidden"></p>
                             </div>
                         </div>
-						
+						</form>
                         <div class="modal-footer">
-                          <button type="submit" class="btn btn-danger delete">
-                            <span id="" class='glyphicon glyphicon-trash'></span> Eliminar
-                         </button>
-                         <a class="btn btn-warning" href="{{ url('contas') }}">
-                            <span class='glyphicon glyphicon-remove'></span> Fechar
-                         </a>
+                        <button type="button" class="btn btn-danger delete">
+                            <span id="" class='glyphicon glyphicon-trash'></span> Delete
+                        </button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">
+                            <span class='glyphicon glyphicon-remove'></span> Close
+                        </button>
                         </div>  
-					</form>
+					
                 </div>
             </div>
         </div>

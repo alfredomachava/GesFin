@@ -21,10 +21,10 @@ class AdminController extends Controller
 		if($request->isMethod('post')){
 			$data=$request->input();
 			if(Auth::attempt(['email'=>$data['email'],'password'=>$data['password'],'admin'=>'1'])){
-				return redirect('/admin/dash');
+				return redirect('/gesfinancas/dash');
 			}else{
 				//echo "Failed";die;
-				return redirect('/admin')->with('flush_message_error','Username ou Senha inválidos!');
+				return redirect('/gesfinancas')->with('flush_message_error','Username ou Senha inválidos!');
 			}
 		}
           return view('admin.admin_login');
@@ -84,7 +84,7 @@ class AdminController extends Controller
     public function logout()
     {
         Session::flush();
-		return redirect('/admin')->with('flush_message_error','Sessão terminado com suceso!');
+		return redirect('/gesfinancas')->with('flush_message_error','Sessão terminado com suceso!');
     }
 
     /**
@@ -122,9 +122,9 @@ class AdminController extends Controller
 				//echo "Bate"; 
                $password = bcrypt($data['val-password']);
                //User::where('id','1')->update(['password'=>$password]);
-               return redirect('/admin/settings')->with('message','Senha actualizada com sucesso!');
+               return redirect('/gesfinancas/settings')->with('message','Senha actualizada com sucesso!');
             }else {
-               return redirect('/admin/settings')->with('message_er','Senha actual Incorreta!');
+               return redirect('/gesfinancas/settings')->with('message_er','Senha actual Incorreta!');
 			}
         }
     }

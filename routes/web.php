@@ -14,17 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::match(['get','post'],'/admin','AdminController@login');
+Route::match(['get','post'],'/gesfinancas','AdminController@login');
+Route::get('/user/register', 'UserController@register')->name('user.register');
+Route::post('/user/store', 'UserController@store')->name('user.store');
 Route::get('/logout','AdminController@logout');
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function(){
-	Route::get('/admin/dashboard','AdminController@dashboard');
-	Route::get('/admin/dash','AdminController@dash');
-    Route::get('/admin/grafico','AdminController@grafico');
-	Route::get('/admin/settings','AdminController@settings');
-	Route::get('/admin/check-pwd','AdminController@checkpwd');
-	Route::match(['get','post'],'/admin/update-pwd','AdminController@updatepwd');
+	Route::get('/gesfinancas/dashboard','AdminController@dashboard');
+	Route::get('/gesfinancas/dash','AdminController@dash');
+    Route::get('/gesfinancas/grafico','AdminController@grafico');
+	Route::get('/gesfinancas/settings','AdminController@settings');
+	Route::get('/gesfinancas/check-pwd','AdminController@checkpwd');
+	Route::match(['get','post'],'/gesfinancas/update-pwd','AdminController@updatepwd');
 	
 	Route::get('MTn {{$conta->saldo}}','LacamentoController@dash');
 	

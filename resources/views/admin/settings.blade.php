@@ -9,7 +9,7 @@
 				</div>	
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{url('admin/dashboard')}}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/gesfinancas/dashboard')}}">Home</a></li>
                         <li class="breadcrumb-item active">Actualizar Senha</li>
                     </ol>
                 </div>
@@ -29,7 +29,7 @@
                                          <div class='alert alert-danger'>{{ Session::get('message_er') }}</div>
                                   @endif
                                 <div class="form-validation">
-                                    <form class="form-valide" action="{{url('/admin/update-pwd')}}" method="post">
+                                    <form class="form-valide" action="{{url('//gesfinancas/update-pwd')}}" method="post">
 										{{csrf_field()}}
 																
 									    <div class="form-group row">

@@ -29,8 +29,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 	 <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>
@@ -69,42 +70,11 @@
         
     </div>
     <!-- End Wrapper -->
-    <!-- All Jquery -->
+    <!-- All Jquery -->	
     <script src="{{ asset('js/backend_js/lib/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{ asset('js/backend_js/lib/bootstrap/js/popper.min.js')}}"></script>
-    <script src="{{ asset('js/backend_js/lib/bootstrap/js/bootstrap.min.js')}}"></script>
-    <!-- slimscrollbar scrollbar JavaScript--> 
-    <script src="{{ asset('js/backend_js/jquery.slimscroll.js')}}"></script>
-    <!--Menu sidebar-->
-    <script src="{{ asset('js/backend_js/sidebarmenu.js')}}"></script>
-    <!--stickey kit -->
-    <script src="{{ asset('js/backend_js/lib/sticky-kit-master/dist/sticky-kit.min.js')}}"></script>
-	<!-- Form validation--> 
-    <script src="{{ asset('js/backend_js/lib/form-validation/jquery.validate.min.js')}}"></script>
-    <script src="{{ asset('js/backend_js/lib/form-validation/jquery.validate-init.js')}}"></script>
-    <!--Custom JavaScript -->
- 
-    <!-- Amchart -->
-     <script src="{{ asset('js/backend_js/lib/morris-chart/raphael-min.js')}}"></script>
-    <script src="{{ asset('js/backend_js/lib/morris-chart/morris.js')}}"></script>
-    <script src="{{ asset('js/backend_js/lib/morris-chart/dashboard1-init.js')}}"></script>
-
-
-	<script src="{{ asset('js/backend_js/lib/calendar-2/moment.latest.min.js')}}"></script>
-    <!-- scripit init
-    <script src="{{ asset('js/backend_js/lib/calendar-2/semantic.ui.min.js')}}"></script>
-    <!-- scripit init-->
-    <script src="{{ asset('js/backend_js/lib/calendar-2/prism.min.js')}}"></script>
-    <!-- scripit init-->
-    <script src="{{ asset('js/backend_js/lib/calendar-2/pignose.calendar.min.js')}}"></script>
-    <!-- scripit init-->
-    <script src="{{ asset('js/backend_js/lib/calendar-2/pignose.init.js')}}"></script>
-
-    <script src="{{ asset('js/backend_js/lib/owl-carousel/owl.carousel.min.js')}}"></script>
-    <script src="{{ asset('js/backend_js/lib/owl-carousel/owl.carousel-init.js')}}"></script>
-    <script src="{{ asset('js/backend_js/scripts.js')}}"></script>
-	
+	<script src="{{ asset('js/backend_js/lib/bootstrap/js/bootstrap.min.js')}}"></script>
+    
 	 <!-- jQuery 
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>-->
 
@@ -139,13 +109,26 @@
     //Eliminar a conta
     $(document).on('click', '.delete-modal', function() {
             $('.modal-title').text('Eliminar');
-			$('.did').text($(this).data('id'));
             $('#id_delete').val($(this).data('id'));
             $('#name_delete').val($(this).data('name'));
 			$('#saldo_delete').val($(this).data('saldo'));
             $('#deleteModal').modal('show');
             id = $('#id_delete').val();         
        });
+	   
+	    $('.modal-footer').on('click', '.delete', function() {
+            $.ajax({
+                type: 'DELETE',
+                url: 'deleteItem/' + id,
+                data: {
+                    '_token': $('input[name=_token]').val(),
+                },
+                success: function(data) {
+                    toastr.success('Successfully deleted Post!', 'Success Alert', {timeOut: 5000});
+                    $('.item' + data['id']).remove();
+                }
+            });
+        });
 	   
 		/*$('.modal-footer').on('click', '.delete', function() {
         $.ajax({

@@ -35,7 +35,7 @@
                                 <ul class="dropdown-user">
                                     <li><a href="#"><i class="ti-user"></i> Perfil</a></li>
                                     <li><a href="#"><i class="ti-wallet"></i> Saldo</a></li>
-                                    <li><a href="{{url('/admin/settings')}}"><i class="ti-settings"></i> Configurações</a></li>
+                                    <li><a href="{{url('/gesfinancas/settings')}}"><i class="ti-settings"></i> Configurações</a></li>
                                     <li><a href="{{url('/logout')}}"><i class="fa fa-power-off"></i> Sair</a></li>
                                 </ul>
                             </div>

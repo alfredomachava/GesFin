@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/backend_img/favicon.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/backend_img/rend.jpg')}}">
     <title>GesFinancas</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/backend_css/lib/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
@@ -41,7 +41,7 @@
                             <div class="login-form">
 											
                                 <h4>Login</h4>
-                                <form method="post" action="{{url('admin')}}">
+                                <form method="post" action="{{url('/gesfinancas')}}">
 								  {{csrf_field()}}
                                     <div class="form-group">
                                         <label>Email address</label>
@@ -73,10 +73,12 @@
 									</div>
 								    @endif
                                     <button type="submit" value="login" class="btn btn-primary btn-flat m-b-30 m-t-30" >Sign in</button>
+									</form>
                                     <div class="register-link m-t-15 text-center">
-                                        <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
+                                        <p>Don't have account ? <a href="{{ url('/user/register') }}"> Sign Up Here</a></p>
                                     </div>
-                                </form>
+									
+                                
                             </div>
                         </div>
                     </div>
